@@ -1,7 +1,6 @@
 package javaps;
 
 import java.io.*;
-import java.util.*;
 
 public class INF0101 {
     static String s1, s2;

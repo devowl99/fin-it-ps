@@ -11,8 +11,12 @@ public class INF0102 {
         s = br.readLine();
 
         for (char c: s.toCharArray()){
-            if (c < 'a') sb.append((char)(c + ('a'-'A'))); // 대문자인 경우
-            else sb.append((char)(c - ('a'-'A')));// 소문자인 경우
+//            if (c < 'a') sb.append((char)(c + ('a'-'A'))); // 대문자인 경우
+//            else sb.append((char)(c - ('a'-'A')));// 소문자인 경우
+
+            if (Character.isUpperCase(c)) sb.append(Character.toLowerCase(c));
+            else sb.append(Character.toUpperCase(c));
+
         }
 
         System.out.println(sb);
