@@ -1,0 +1,8 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Build (Standard Java / Gradle / Maven)
+out/
+build/
+target/
