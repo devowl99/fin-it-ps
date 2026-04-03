@@ -23,7 +23,7 @@ public class INF0206 {
             while(num != 0){
                 int tmp = num%10;
                 result = result*10 + tmp;
-                num/=10;
+                num = num/10;
             }
 
             nums[i] = result;
