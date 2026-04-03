@@ -51,7 +51,7 @@ public class INF0209 {
             maxSum = Math.max(maxSum, Math.max(sum1, sum2));
         }
 
-        // 3. 대각선
+        // 대각선
         sum1 = sum2 = 0;
         for (int i=0; i<N; i++){
             sum1 += board[i][i];
