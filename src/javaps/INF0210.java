@@ -8,7 +8,6 @@ public class INF0210 {
     static int[][] map;
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-    static StringBuilder sb;
     static int count;
 
     // 상 하 좌 우
