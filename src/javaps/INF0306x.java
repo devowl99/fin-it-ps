@@ -3,18 +3,16 @@ package javaps;
 import java.io.*;
 import java.util.*;
 
-public class INF0304x {
+public class INF0306x {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-    static int N, M;
+    static int N, k;
     static int[] arr;
-    static int count;
 
     public static void main(String[] args) throws IOException {
-
         st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
+        k = Integer.parseInt(st.nextToken());
 
         arr = new int[N];
         st = new StringTokenizer(br.readLine());
@@ -22,19 +20,18 @@ public class INF0304x {
             arr[n] = Integer.parseInt(st.nextToken());
         }
 
-        count = 0;
         int left = 0;
-        int sum = 0;
+        int maxLen = 0;
+        int changeCount = 0;
         for (int right=0; right<N; right++){
-
-            sum += arr[right];
-
-            while (sum >= M){
-                if (sum == M) count++;
-                sum -= arr[left++];
+            if (arr[right] == 0) changeCount++;
+            while (changeCount > k){
+                if (arr[left] == 0) changeCount--;
+                left++;
             }
+            maxLen = Math.max(maxLen, right - left + 1);
         }
 
-        System.out.println(count);
+        System.out.println(maxLen);
     }
 }
