@@ -23,17 +23,26 @@ public class INF0303v2 {
         }
 
         totalMax = 0;
-        int p1 = 0;
-        int p2 = K;
-        for (int i=p1; i<p2; i++){
+        for (int i=0; i<K; i++){
             totalMax += record[i];
         }
 
         int total = totalMax;
-        while (p2 < N){
-            total = total - (record[p1++]) + (record[p2++]);
+        for (int i=K; i<N; i++){
+            total = total + record[i] - record[i-K];
             totalMax = Math.max(totalMax, total);
         }
+//        int p1 = 0;
+//        int p2 = K;
+//        for (int i=p1; i<p2; i++){
+//            totalMax += record[i];
+//        }
+//
+//        int total = totalMax;
+//        while (p2 < N){
+//            total = total - (record[p1++]) + (record[p2++]);
+//            totalMax = Math.max(totalMax, total);
+//        }
 
         System.out.println(totalMax);
     }
