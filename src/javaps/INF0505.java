@@ -29,9 +29,7 @@ public class INF0505 {
                     answer += dq.size();
                     lazer = false;
                 }
-                else {
-                    answer++;
-                }
+                else answer++;
             }
         }
 
