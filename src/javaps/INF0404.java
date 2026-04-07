@@ -3,7 +3,7 @@ package javaps;
 import java.io.*;
 import java.util.*;
 
-public class INF0404{
+public class INF0404 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static String S, T;
     static Map<Character, Integer> mapT;
@@ -35,7 +35,7 @@ public class INF0404{
         int left = 0;
         for (int right=k; right<S.length(); right++){
             mapS.put(arrayS[right], mapS.getOrDefault(arrayS[right], 0)+1);
-            mapS.put(arrayS[left], mapS.getOrDefault(arrayS[left], 0)-1);
+            mapS.put(arrayS[left], mapS.get(arrayS[left])-1);
             if (mapS.get(arrayS[left]) == 0) mapS.remove(arrayS[left]);
             left++;
 
