@@ -33,19 +33,17 @@ public class INF0508 {
         }
 
         int count = 0;
-        boolean flag;
-        while (true){
+        while (!q.isEmpty()){
             Person p = q.poll();
-            flag = true;
             for (Person x: q){
                 if (x.rate > p.rate){ // 더 위험도 높은게 있으면 다시 들어가
                     q.offer(p);
-                    flag = false;
+                    p = null;
                     break;
                 }
             }
 
-            if (flag){
+            if (p != null){
                 count++;
                 if (p.order == M) break;
             }
