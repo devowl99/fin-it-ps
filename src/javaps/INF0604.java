@@ -34,19 +34,16 @@ public class INF0604 {
             }
 
             if (idx != -1) { // cache hit (빠졌다가 0으로 다시 들어옴)
-                int tmp = cache[idx];
                 for (int i = idx; 0 < i; i--) {
                     cache[i] = cache[i-1];
                 }
-                cache[0] = tmp;
             }
-
             else { // cache miss (하나 빠지고 새로 들어옴)
                 for (int i=S-1; 0<i; i--){
                     cache[i] = cache[i-1];
                 }
-                cache[0] = work;
             }
+            cache[0] = work;
         }
 
         StringBuilder sb = new StringBuilder();

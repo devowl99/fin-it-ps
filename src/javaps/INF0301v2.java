@@ -4,7 +4,7 @@ package javaps;
 import java.io.*;
 import java.util.*;
 
-public class INF0301_v2 {
+public class INF0301v2 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
     static int N, M;
