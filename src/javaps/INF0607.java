@@ -9,12 +9,18 @@ public class INF0607 {
     static int N;
     static Point[] points;
 
-    static class Point {
+    static class Point implements Comparable<Point>{
         int x, y;
 
         Point (int x, int y){
             this.x = x;
             this.y = y;
+        }
+
+        @Override
+        public int compareTo(Point o){
+            if (this.x == o.x) return this.y - o.y;
+            else return this.x - o.x;
         }
     }
 
@@ -31,6 +37,11 @@ public class INF0607 {
             points[n] = new Point(x, y);
         }
 
-
+        Arrays.sort(points);
+        StringBuilder sb = new StringBuilder();
+        for (Point p: points){
+            sb.append(p.x).append(' ').append(p.y).append('\n');
+        }
+        System.out.println(sb);
     }
 }
