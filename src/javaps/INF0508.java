@@ -47,7 +47,6 @@ public class INF0508 {
                 count++;
                 if (p.order == M) break;
             }
-
         }
 
         System.out.println(count);
