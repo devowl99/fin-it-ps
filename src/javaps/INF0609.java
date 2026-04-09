@@ -3,6 +3,7 @@ package javaps;
 import java.io.*;
 import java.util.*;
 
+// 결정 알고리즘은 범위 (l ~ r) 사이에 반드시 정답이 있다는 확신 하에 사용해야한다.
 public class INF0609 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
@@ -18,15 +19,44 @@ public class INF0609 {
 
         songs = new int[N];
         st = new StringTokenizer(br.readLine());
+        int maxLen = Integer.MIN_VALUE;
+        int totalLen = 0;
         for (int i=0; i<N; i++){
-            songs[i] = Integer.parseInt(st.nextToken());
+            int nSong = Integer.parseInt(st.nextToken());
+            songs[i] = nSong;
+            totalLen += nSong;
+            if (maxLen < nSong) maxLen = nSong;
         }
 
-        int total = 0; // 총 노래 길이
-        for (int i=0; i<N; i++){
-            total += songs[i];
-        }
-        // 총 노래 길이/3 에서부터 시작하자
+        int lt = maxLen;
+        int rt = totalLen;
+        int mid = 0;
+        int ans = 0;
+        while (lt <= rt){
+            mid = (lt+rt)/2;
 
+            int dvdCount = 1;
+            int dvdVolume = 0;
+            boolean flag = true;
+            for (int song: songs){
+                if (dvdVolume+song > mid){
+                    dvdCount++;
+                    if (dvdCount>M){
+                        flag = false;
+                        break;
+                    }
+                    dvdVolume = 0;
+                }
+                dvdVolume += song;
+            }
+
+            if (flag) {
+                ans = mid;
+                rt = mid-1;
+            }
+            else lt = mid+1;
+        }
+
+        System.out.println(ans);
     }
 }
