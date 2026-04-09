@@ -9,7 +9,6 @@ public class INF0609 {
     static StringTokenizer st;
     static int N, M;
     static int[] songs;
-    static int volume;
 
     public static void main(String[] args) throws IOException {
 
@@ -30,7 +29,7 @@ public class INF0609 {
 
         int lt = maxLen;
         int rt = totalLen;
-        int mid = 0;
+        int mid;
         int ans = 0;
         while (lt <= rt){
             mid = (lt+rt)/2;
