@@ -51,8 +51,8 @@ public class INF0708 {
                     if (visited[next]) continue;
                     if (next == E) return p.jump+1; // 약간 더 최적화
 
-                    q.offer(new Point(next, p.jump+1));
                     visited[next] = true;
+                    q.offer(new Point(next, p.jump+1));
                 }
             }
         }
