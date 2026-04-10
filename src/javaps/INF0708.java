@@ -42,7 +42,7 @@ public class INF0708 {
         while (!q.isEmpty()){
             Point p = q.poll();
 
-//            if (p.loc == E) return p.jump;
+            // if (p.loc == E) return p.jump;
 
             for (int s: skip){
                 int next = p.loc + s;
