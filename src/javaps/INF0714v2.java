@@ -45,6 +45,7 @@ public class INF0714v2 {
 
     static void bfs(){
         q = new ArrayDeque<>();
+
         dis[1] = 0;
         q.offer(1);
 
