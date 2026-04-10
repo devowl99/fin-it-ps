@@ -42,13 +42,14 @@ public class INF0708 {
         while (!q.isEmpty()){
             Point p = q.poll();
 
-            if (p.loc == E) return p.jump;
+//            if (p.loc == E) return p.jump;
 
             for (int s: skip){
                 int next = p.loc + s;
 
                 if (1 <= next && next <= 10000){
                     if (visited[next]) continue;
+                    if (next == E) return p.jump+1; // 약간 더 최적화
 
                     q.offer(new Point(next, p.jump+1));
                     visited[next] = true;
