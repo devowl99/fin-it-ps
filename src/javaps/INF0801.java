@@ -28,17 +28,17 @@ public class INF0801 {
     }
 
     static void dfs(int depth, int sum1, int sum2){
+        if (flag) return;
+
         if (depth == arr.length){
             if (sum1 == sum2) flag = true;
             return;
         }
 
-        if (!flag){
-            // sum1에 넣는 경우
-            dfs(depth+1, sum1+arr[depth], sum2);
+        // sum1에 넣는 경우
+        dfs(depth+1, sum1+arr[depth], sum2);
 
-            // sum2에 넣는 경우
-            dfs(depth+1, sum1, sum2+arr[depth]);
-        }
+        // sum2에 넣는 경우
+        dfs(depth+1, sum1, sum2+arr[depth]);
     }
 }
