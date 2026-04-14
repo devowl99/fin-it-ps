@@ -32,7 +32,6 @@ public class INF0804 {
                 System.out.print(x+" ");
             }
             System.out.println();
-
             return;
         }
 
