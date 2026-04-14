@@ -8,7 +8,7 @@ public class INF0804 {
     static StringTokenizer st;
     static int N, M;
     static int[] arr;
-    static List<Integer> perm;
+    static int[] perm;
 
     public static void main(String[] args) throws IOException {
 
@@ -21,24 +21,21 @@ public class INF0804 {
             arr[i] = i+1;
         }
 
-        perm = new ArrayList<>();
+        perm = new int[M];
         dfs(0);
 
     }
 
     static void dfs(int depth){
         if (depth == M){
-            for (int x: perm){
-                System.out.print(x+" ");
-            }
+            for (int x: perm) System.out.print(x+" ");
             System.out.println();
             return;
         }
 
-        for (int i=0; i<arr.length; i++){
-            perm.add(arr[i]);
+        for (int i=0; i<N; i++){
+            perm[depth] = arr[i];
             dfs(depth+1);
-            perm.remove(perm.size()-1);
         }
     }
 }
