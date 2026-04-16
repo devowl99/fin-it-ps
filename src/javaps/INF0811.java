@@ -42,6 +42,7 @@ public class INF0811 {
 
     static int bfs(){
         q = new ArrayDeque<>();
+
         q.offer(new Point(0, 0, 0));
         visited[0][0] = true;
 
