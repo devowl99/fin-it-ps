@@ -3,7 +3,7 @@ package javaps;
 import java.io.*;
 import java.util.*;
 
-public class INF0813 {
+public class INF0814 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
     static int N;
@@ -43,7 +43,7 @@ public class INF0813 {
             for (int j=0; j<N; j++){
                 if (visited[i][j] || map[i][j] == 0) continue;
 
-                dfs();
+                bfs(j, i);
                 count++;
             }
         }
@@ -52,7 +52,25 @@ public class INF0813 {
 
     }
 
-    static void dfs() {
+    static void bfs(int x, int y){
+        Queue<Point> q = new ArrayDeque<>();
 
+        visited[y][x] = true;
+        q.offer(new Point(x, y));
+
+        while (!q.isEmpty()) {
+            Point cur = q.poll();
+
+            for (int d=0; d<8; d++){
+                int nx = cur.x + dx[d];
+                int ny = cur.y + dy[d];
+
+                if (nx<0 || nx>=N || ny<0 || ny>=N) continue;
+                if (visited[ny][nx] || map[ny][nx] == 0) continue;
+
+                visited[ny][nx] = true;
+                q.offer(new Point(nx, ny));
+            }
+        }
     }
 }
