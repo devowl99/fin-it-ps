@@ -38,12 +38,12 @@ public class INF0813 {
         }
 
         int count = 0;
-        // 1이면 섬임
+        // 0:바다, 1:섬
         for (int i=0; i<N; i++){
             for (int j=0; j<N; j++){
                 if (visited[i][j] || map[i][j] == 0) continue;
 
-                dfs();
+                dfs(new Point(j, i));
                 count++;
             }
         }
@@ -52,7 +52,20 @@ public class INF0813 {
 
     }
 
-    static void dfs() {
+    static void dfs(Point p) {
+        int x = p.x;
+        int y = p.y;
 
+        visited[y][x] = true;
+
+        for (int d=0; d<8; d++){
+            int nx = x + dx[d];
+            int ny = y + dy[d];
+
+            if (nx<0 || N<=nx || ny<0 || N<=ny) continue;
+            if (visited[ny][nx] || map[ny][nx] == 0) continue;
+
+            dfs(new Point(nx, ny));
+        }
     }
 }
