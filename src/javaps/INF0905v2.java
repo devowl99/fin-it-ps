@@ -79,10 +79,10 @@ public class INF0905v2 {
                 int nextCost = next.cost;
 
                 // dis에 저장된 최소 cost <= 현재 노드까지 cost + 현재->다음 노드 cost
-                if (dis[nextNode] <= dis[curNode] + nextCost) continue;
-
-                dis[nextNode] = dis[curNode] + nextCost;
-                pQ.offer(new Node(nextNode, dis[nextNode]));
+                if (dis[nextNode] > dis[curNode] + nextCost) {
+                    dis[nextNode] = dis[curNode] + nextCost;
+                    pQ.offer(new Node(nextNode, dis[nextNode]));
+                }
             }
         }
     }
