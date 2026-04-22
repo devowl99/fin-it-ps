@@ -70,7 +70,7 @@ public class INF0905v2 {
             int curNode = cur.to;
             int curCost = cur.cost;
 
-            // 뽑은 값이 dis에 저장된 최솟값보다 클 때
+            // 뽑은 값이 dis에 저장된 값보다 클 때
             if (curCost > dis[curNode]) continue;
 
             // 나하고 연결된 것 중
