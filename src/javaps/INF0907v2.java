@@ -28,7 +28,7 @@ public class INF0907v2 {
     }
 
     static Edge[] edgeArr;
-    static int p[];
+    static int[] p;
 
     public static void main(String[] args) throws IOException {
 

@@ -28,7 +28,7 @@ public class INF0907 {
     }
 
     static List<Edge> edgeList;
-    static int p[];
+    static int[] p;
 
     public static void main(String[] args) throws IOException {
 
