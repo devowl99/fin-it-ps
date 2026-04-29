@@ -20,11 +20,12 @@ public class INF0908v2 {
 
         @Override
         public int compareTo(Node o){
-            return Integer.compare(this.cost, this.o);
+            return Integer.compare(this.cost, o.cost);
         }
     }
 
     static List<Node>[] graph;
+    static boolean[] visited;
 
     public static void main(String[] args) throws IOException {
 
@@ -44,7 +45,34 @@ public class INF0908v2 {
             int cost = Integer.parseInt(st.nextToken());
 
             graph[from].add(new Node(to, cost));
+            graph[to].add(new Node(from, cost));
         }
 
+        visited = new boolean[V+1];
+        PriorityQueue<Node> pQ = new PriorityQueue<>();
+
+        pQ.offer(new Node(1, 0));
+
+        int count = 0;
+        int totalCost = 0;
+        while (!pQ.isEmpty()){
+            Node cur = pQ.poll();
+
+            if (visited[cur.to]) continue;
+            visited[cur.to] = true;
+            totalCost += cur.cost;
+            count++;
+
+            if (count == V) break;
+
+            for (Node next: graph[cur.to]){
+                if (visited[next.to]) continue;
+
+                pQ.offer(next);
+            }
+
+        }
+
+        System.out.println(totalCost);
     }
 }
