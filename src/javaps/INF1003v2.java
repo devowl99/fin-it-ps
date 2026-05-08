@@ -27,7 +27,7 @@ public class INF1003v2 {
         maxNum = 0;
         for (int i=1; i<=N; i++){
             int max = 0;
-            for (int j=i-1; j>=0; j--){
+            for (int j=1; j<i; j++){
                 if (arr[j] < arr[i] && dp[j] > max) max = dp[j];
             }
             dp[i] = max+1;
