@@ -1,4 +1,4 @@
-package javaps;
+package javaps.inf;
 
 import java.io.*;
 import java.util.*;
