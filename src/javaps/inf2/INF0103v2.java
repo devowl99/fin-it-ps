@@ -3,16 +3,15 @@ package javaps.inf2;
 import java.io.*;
 import java.util.*;
 
-// 1. StringTokenizer 활용
-public class INF0103 {
+// split 활용
+public class INF0103v2 {
 
-    static String solution(String str){
-        StringTokenizer st = new StringTokenizer(str);
-
+    static String solution(String str) {
+        String[] strArr = str.split(" ");
         String answer = "";
-        while (st.hasMoreTokens()){
-            String next = st.nextToken();
-            if (answer.length() < next.length()) answer = next;
+
+        for (String s: strArr){
+            if (s.length() > answer.length()) answer = s;
         }
 
         return answer;
