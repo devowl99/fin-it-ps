@@ -14,17 +14,21 @@ public class INF0212 {
             for (int menti=1; menti<=N; menti++) {
                 if (mento == menti) continue;
 
-                int mentoRank = 0;
-                int mentiRank = 0;
                 boolean match = true;
 
                 for (int test=1; test<=M; test++) {
+                    int mentoRank = 0;
+                    int mentiRank = 0;
+
                     for (int rank=1; rank<=N; rank++) {
                         if (board[test][rank] == mento) mentoRank = rank;
                         else if (board[test][rank] == menti) mentiRank = rank;
                     }
 
-                    if (mentoRank > mentiRank) match = false;
+                    if (mentoRank > mentiRank) {
+                        match = false;
+                        break;
+                    }
                 }
 
                 if (match) count++;
