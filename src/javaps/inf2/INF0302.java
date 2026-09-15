@@ -25,7 +25,6 @@ public class INF0302 {
         }
 
         StringBuilder sb = new StringBuilder();
-        int i=0;
         for (int x: lst) {
             sb.append(x).append(" ");
         }
