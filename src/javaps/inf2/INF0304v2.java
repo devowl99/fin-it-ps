@@ -7,6 +7,18 @@ public class INF0304v2 {
 
     static int solution(int n, int m, int[] arr) {
 
+        int count = 0;
+        int lt = 0;
+        int sum = 0;
+        for (int rt=0; rt<n; rt++) {
+            sum += arr[rt];
+
+            while (sum > m) {
+                sum -= arr[lt++];
+            }
+
+            if (sum == m) count++;
+        }
 
         return count;
     }
