@@ -7,7 +7,23 @@ public class INF0306v3 {
 
     static int solution(int n, int k, int[] a) {
 
+        int maxLen = 0;
+        int chance = k;
+        int lt = 0;
+        for (int rt=0; rt<n; rt++) {
+            if (a[rt] == 0) chance--;
 
+            while (chance < 0) {
+                if (a[lt] == 0) {
+                    chance++;
+                }
+                lt++;
+            }
+
+            maxLen = Math.max(maxLen, rt-lt+1);
+        }
+
+        return maxLen;
     }
 
     public static void main(String[] args) throws IOException {
@@ -26,5 +42,4 @@ public class INF0306v3 {
 
         System.out.println(solution(n, k, a));
     }
-}
 }
