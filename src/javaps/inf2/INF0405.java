@@ -6,14 +6,7 @@ import java.util.*;
 public class INF0405 {
 
     static int solution(int N, int K, int[] arr) {
-        Set<Integer> ts = new TreeSet<>(Collections.reverseOrder());
-        for (int x: arr) {
-            ts.add(x);
-        }
 
-        List<Integer> lst = new ArrayList<>(ts);
-
-        return lst.get(K-1);
     }
 
     public static void main(String[] args) throws IOException {
