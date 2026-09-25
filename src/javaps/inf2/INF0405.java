@@ -5,8 +5,30 @@ import java.util.*;
 
 public class INF0405 {
 
-    static int solution(int N, int K, int[] arr) {
+    static Set<Integer> treeSet;
 
+    static int solution(int N, int K, int[] arr) {
+        treeSet = new TreeSet<>(Collections.reverseOrder());
+        comb(0, 0, 0, arr);
+
+        int i=0;
+        for (int x: treeSet) {
+            i++;
+            if (i==K) return x;
+        }
+
+        return -1;
+    }
+
+    static void comb(int depth, int start, int sum, int[] arr) {
+        if (depth == 3) {
+            treeSet.add(sum);
+            return;
+        }
+
+        for (int i=start; i<arr.length; i++) {
+            comb(depth+1, i+1, sum+arr[i], arr);
+        }
     }
 
     public static void main(String[] args) throws IOException {
