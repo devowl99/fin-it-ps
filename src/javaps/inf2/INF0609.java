@@ -14,7 +14,7 @@ public class INF0609 {
             rt+=x;
         }
 
-        int minVol = Integer.MAX_VALUE; // 최소용량 갱신
+        int minVol = 0; // 최소용량 갱신
         while (lt<=rt) {
             int mid = (lt+rt)/2; // 최대 용량 한도 설정
             int dvdCount = 1;
