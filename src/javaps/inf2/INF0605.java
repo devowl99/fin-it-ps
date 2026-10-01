@@ -3,23 +3,17 @@ package javaps.inf2;
 import java.io.*;
 import java.util.*;
 
-public class INF060123 {
+public class INF0605 {
 
-    static String solution(int[] arr) {
-        List<Integer> lst = new ArrayList<>();
+    static char solution(int N, int[] arr) {
+        Set<Integer> set = new HashSet<>();
 
         for (int x: arr) {
-            lst.add(x);
-        }
-        Collections.sort(lst);
-        // Collections.sort(lst, Collections.reverseOrder());
-
-        StringBuilder sb = new StringBuilder();
-        for (int x: lst) {
-            sb.append(x).append(' ');
+            set.add(x);
         }
 
-        return sb.toString();
+        if (set.size()==N) return 'U';
+        else return 'D';
     }
 
     public static void main(String[] args) throws IOException {
@@ -33,6 +27,6 @@ public class INF060123 {
             arr[n] = Integer.parseInt(st.nextToken());
         }
 
-        System.out.println(solution(arr));
+        System.out.println(solution(N, arr));
     }
 }
