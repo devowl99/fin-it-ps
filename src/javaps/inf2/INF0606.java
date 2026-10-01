@@ -6,15 +6,16 @@ import java.util.*;
 public class INF0606 {
 
     static String solution(int N, int[] arr) {
-        int[] arr2 = new int[N];
-        for (int i=0; i<N; i++) {
-            arr2[i] = arr[i];
-        }
+//        int[] arr2 = new int[N];
+//        for (int i=0; i<N; i++) {
+//            arr2[i] = arr[i];
+//        }
+        int[] arr2 = arr.clone();
         Arrays.sort(arr);
 
         StringBuilder sb = new StringBuilder();
-        for (int i=1; i<=N; i++) {
-            if (arr[i-1] != arr2[i-1]) sb.append(i).append(' ');
+        for (int i=0; i<N; i++) {
+            if (arr[i] != arr2[i]) sb.append(i+1).append(' ');
         }
 
         return sb.toString();
