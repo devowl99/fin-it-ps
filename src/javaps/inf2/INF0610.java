@@ -23,6 +23,8 @@ public class INF0610 {
                     horse++;
                     house = arr[i];
                 }
+
+                if (horse == C) break;
             }
 
             if (horse >= C) {
