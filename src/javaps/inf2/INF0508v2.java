@@ -35,9 +35,7 @@ public class INF0508v2 {
 
                 if (p.id==M) break;
             }
-            else {
-                chart.offer(p);
-            }
+            else chart.offer(p);
         }
 
         return count;
