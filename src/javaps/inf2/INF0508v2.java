@@ -31,9 +31,9 @@ public class INF0508v2 {
 
             if (p.rate == pq.peek()) {
                 count++;
-                if (p.id==M) break;
-
                 pq.poll();
+
+                if (p.id==M) break;
             }
             else {
                 chart.offer(p);
