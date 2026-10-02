@@ -10,11 +10,11 @@ public class INF0706 {
 
     static void solution(int N) {
         subset = new ArrayList<>();
-        subset(1);
+        subset(0);
     }
 
     static void subset(int i) {
-        if (i > N) {
+        if (i == N) {
             for (int x: subset) {
                 System.out.print(x+" ");
             }
@@ -22,7 +22,7 @@ public class INF0706 {
             return;
         }
 
-        subset.add(i);
+        subset.add(i+1);
         subset(i+1);
         subset.remove(subset.size()-1);
 
