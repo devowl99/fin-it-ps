@@ -10,6 +10,9 @@ public class INF0714v3 {
     static int[] dist; // visited 겸 거리 저장
 
     static void solution() {
+        dist = new int[N+1];
+        Arrays.fill(dist, -1);
+
         Queue<Integer> q = new ArrayDeque<>();
 
         q.offer(1);
@@ -47,9 +50,6 @@ public class INF0714v3 {
 
             graph[from].add(to);
         }
-
-        dist = new int[N+1];
-        Arrays.fill(dist, -1);
 
         solution();
 
