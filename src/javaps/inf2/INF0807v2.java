@@ -6,17 +6,14 @@ import java.util.*;
 public class INF0807v2 {
 
     static int n, r;
-    static int count;
+    static int[][] C;
 
-    static void dfs(int depth, int start) {
-        if (depth==r) {
-            count++;
-            return;
-        }
+    static int dfs(int N, int R) {
+        if (N==R || R==0) return C[N][R] = 1;
 
-        for (int i=start; i<n; i++) {
-            dfs(depth+1, i+1);
-        }
+        if (C[N][R] != 0) return C[N][R];
+
+        return C[N][R] = dfs(N-1, R-1) + dfs(N-1, R);
     }
 
     public static void main(String[] args) throws IOException {
@@ -25,10 +22,8 @@ public class INF0807v2 {
 
         n = Integer.parseInt(st.nextToken());
         r = Integer.parseInt(st.nextToken());
+        C = new int[n+1][r+1];
 
-        count = 0;
-        dfs(0, 0);
-
-        System.out.println(count);
+        System.out.println(dfs(n, r));
     }
 }
