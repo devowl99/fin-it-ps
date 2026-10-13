@@ -7,12 +7,12 @@ public class INF0812 {
 
     static class Tomato {
         int x, y;
-        int stat;
+        int day;
 
-        Tomato (int x, int y, int stat) {
+        Tomato (int x, int y, int day) {
             this.x = x;
             this.y = y;
-            this.stat = stat;
+            this.day = day;
         }
     }
 
@@ -26,12 +26,33 @@ public class INF0812 {
         // 1: 익은 토마토 0: 안 익은 토마토 -1: 토마토 없음
         Queue<Tomato> q = new ArrayDeque<>();
 
-        for (int n=0; n<N; n++) {
-            for (int m=0; m<M; m++) {
-                if (box[n][m] == 1) q.offer(new Tomato(m, n, 1));
-                else if (box[n][m] == 0) q.offer(new Tomato(m, n, 0));
+        for (int y=0; y<N; y++) {
+            for (int x=0; x<M; x++) {
+                if (box[y][x] == 1) q.offer(new Tomato(x, y, 0));
             }
         }
+
+        if (q.isEmpty()) return 0;
+
+        int leastDay = 0;
+        while (!q.isEmpty()) {
+            Tomato tmt = q.poll();
+
+            if (leastDay < tmt.day) leastDay = tmt.day;
+
+            for (int d=0; d<4; d++) {
+                int nx = tmt.x + dx[d];
+                int ny = tmt.y + dy[d];
+
+                if (nx<0 || nx>=M || ny<0 || ny>=N) continue;
+                if (box[ny][nx] != 0) continue;
+
+                box[ny][nx] = 1;
+                q.offer(new Tomato(nx, ny, tmt.day+1));
+            }
+        }
+
+        return leastDay;
     }
 
     public static void main(String[] args) throws IOException {
