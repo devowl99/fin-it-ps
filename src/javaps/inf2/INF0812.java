@@ -30,11 +30,11 @@ public class INF0812 {
         for (int y=0; y<N; y++) {
             for (int x=0; x<M; x++) {
                 if (box[y][x] == 1) q.offer(new Tomato(x, y, 0));
-                else if (box[y][x] == 0) not++;
+                else if (box[y][x] == 0) not++; // 안 익은 토마토 수
             }
         }
 
-        if (q.isEmpty()) return 0;
+        if (!q.isEmpty() && not == 0) return 0;
 
         int leastDay = 0;
         while (!q.isEmpty()) {
