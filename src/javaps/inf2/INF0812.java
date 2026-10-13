@@ -26,9 +26,11 @@ public class INF0812 {
         // 1: 익은 토마토 0: 안 익은 토마토 -1: 토마토 없음
         Queue<Tomato> q = new ArrayDeque<>();
 
+        int not = 0;
         for (int y=0; y<N; y++) {
             for (int x=0; x<M; x++) {
                 if (box[y][x] == 1) q.offer(new Tomato(x, y, 0));
+                else if (box[y][x] == 0) not++;
             }
         }
 
@@ -48,19 +50,21 @@ public class INF0812 {
                 if (box[ny][nx] != 0) continue;
 
                 box[ny][nx] = 1;
+                not--;
                 q.offer(new Tomato(nx, ny, tmt.day+1));
             }
         }
 
-        return leastDay;
+        if (not != 0) return -1;
+        else return leastDay;
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
 
         box = new int[N][M];
         for (int n=0; n<N; n++) {
