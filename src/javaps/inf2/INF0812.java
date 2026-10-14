@@ -34,7 +34,7 @@ public class INF0812 {
             }
         }
 
-        if (!q.isEmpty() && not == 0) return 0;
+        // if (!q.isEmpty() && not == 0) return 0;
 
         int leastDay = 0;
         while (!q.isEmpty()) {
