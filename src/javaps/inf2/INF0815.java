@@ -52,7 +52,7 @@ public class INF0815 {
 
         for (int i=start; i<pz.size(); i++) {
             pComb[depth] = pz.get(i);
-            dfs(depth+1, i);
+            dfs(depth+1, i+1);
         }
     }
 
